@@ -7,7 +7,8 @@ import math
 import sys
 args = sys.argv
 
-import data_params
+from . import data_params
+
 
 type_map = {
     0: 4,
@@ -16,11 +17,13 @@ type_map = {
     3: 1,
     4: 2
 }
+script_dir = os.path.abspath(os.path.dirname(__file__))
 
 
 def type_mapping(src):
     dst = type_map[src]
     return dst
+
 
 def normalize_vector(vec):
     if isinstance(vec, dict):
@@ -155,7 +158,7 @@ def main():
     debug_print = False
     filter_rows = []
 
-    path = os.getcwd() + '/../csv/*/*csv'
+    path = os.getcwd() + script_dir + '/../csv/*/*csv'
     csv_files = glob.glob(path)
 
     df_list = []
@@ -271,8 +274,8 @@ def main():
                     debug_print=debug_print)
     else:
         export_data(df,
-                    train_file_name='../../../csv/train.csv',
-                    test_file_name='../../../csv/test.csv',
+                    train_file_name=script_dir + '/../../../csv/train.csv',
+                    test_file_name=script_dir + '/../../../csv/test.csv',
                     debug_print=debug_print)
 
 if __name__ == '__main__':
