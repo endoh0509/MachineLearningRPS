@@ -1,0 +1,102 @@
+String[] types;
+PImage[] imgs;
+
+String[] handParams = {
+  "hand_id", 
+  "hand_position_x", 
+  "hand_position_y", 
+  "hand_position_z", 
+  "hand_stabilized_x", 
+  "hand_stabilized_y", 
+  "hand_stabilized_z", 
+  "hand_direction_x", 
+  "hand_direction_y", 
+  "hand_direction_z", 
+  "hand_dynamics_x", 
+  "hand_dynamics_y", 
+  "hand_dynamics_z", 
+  "hand_roll", 
+  "hand_pitch", 
+  "hand_yaw", 
+  "hand_is_left", 
+  "hand_is_right", 
+  "hand_grab", 
+  "hand_pinch", 
+  "hand_time", 
+  "sphere_position_x", 
+  "sphere_position_y", 
+  "sphere_position_z", 
+  "sphere_radius", 
+  "outstretched_fingers_num", 
+  "outstretched_fingers_by_angle_num", 
+  "thumb_is_outstretched", 
+  "index_is_outstretched", 
+  "middle_is_outstretched", 
+  "ring_is_outstretched", 
+  "pinky_is_outstretched", 
+  "thumb_is_outstretched_by_angle", 
+  "index_is_outstretched_by_angle", 
+  "middle_is_outstretched_by_angle", 
+  "ring_is_outstretched_by_angle", 
+  "pinky_is_outstretched_by_angle"
+};
+
+String[] armParams = {
+  "arm_width", 
+  "arm_wrist_pos_x", 
+  "arm_wrist_pos_y", 
+  "arm_wrist_pos_z", 
+  "arm_elbow_pos_x", 
+  "arm_elbow_pos_y", 
+  "arm_elbow_pos_z"
+};
+
+String[] fingerParams = {
+  "finger_id", 
+  "finger_position_x", 
+  "finger_position_y", 
+  "finger_position_z", 
+  "finger_stabilized_x", 
+  "finger_stabilized_y", 
+  "finger_stabilized_z", 
+  "finger_velocity_x", 
+  "finger_velocity_y", 
+  "finger_velocity_z", 
+  "finger_direction_x", 
+  "finger_direction_y", 
+  "finger_direction_z", 
+  "finger_time", 
+  // TODO
+  "raw_position_of_joint_dip_x", 
+  "raw_position_of_joint_dip_y", 
+  "raw_position_of_joint_dip_z", 
+  "raw_position_of_joint_mcp_x", 
+  "raw_position_of_joint_mcp_y", 
+  "raw_position_of_joint_mcp_z", 
+  "raw_position_of_joint_pip_x", 
+  "raw_position_of_joint_pip_y", 
+  "raw_position_of_joint_pip_z", 
+  "raw_position_of_joint_tip_x", 
+  "raw_position_of_joint_tip_y", 
+  "raw_position_of_joint_tip_z", 
+  "position_of_joint_dip_x", 
+  "position_of_joint_dip_y", 
+  "position_of_joint_dip_z", 
+  "position_of_joint_mcp_x", 
+  "position_of_joint_mcp_y", 
+  "position_of_joint_mcp_z", 
+  "position_of_joint_pip_x", 
+  "position_of_joint_pip_y", 
+  "position_of_joint_pip_z", 
+  "position_of_joint_tip_x", 
+  "position_of_joint_tip_y", 
+  "position_of_joint_tip_z"
+};
+
+String[] fingerList = {
+  "thumb", 
+  "index", 
+  "middle", 
+  "ring", 
+  "pinky"
+};
