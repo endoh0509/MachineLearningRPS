@@ -5,14 +5,15 @@ from keras.utils import np_utils
 import pandas as pd
 import os
 
+from . import encoder
+
+script_dir = os.path.abspath(os.path.dirname(__file__))
+hdf5_file_path = script_dir + '/../assets/model/rps_model.hdf5'
+json_file_path = script_dir + '/../assets/model/rps_model.json'
+train_file = script_dir + '/csv/train.csv'
+test_file = script_dir + '/csv/test.csv'
 
 def main():
-    script_dir = os.path.abspath(os.path.dirname(__file__))
-    hdf5_file_path = script_dir + '/../assets/model/rps_model.hdf5'
-    json_file_path = script_dir + '/../assets/model/rps_model.json'
-    train_file = script_dir + '/csv/train.csv'
-    test_file = script_dir + '/csv/test.csv'
-
     weights_filepath = '{}.hdf5'.format(os.path.splitext(hdf5_file_path)[0])
 
     train = pd.read_csv(train_file)
@@ -91,3 +92,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+    encoder = encoder.Encoder(hdf5_file_path)
+    encoder.serialize()
+    encoder.save()
