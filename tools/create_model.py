@@ -20,15 +20,15 @@ def main():
 
     col_list = train.columns.tolist()
     col_list.remove('type')
-    X_train = train[col_list].as_matrix()
-    Y_train = train['type'].as_matrix()
+    x_train = train[col_list].as_matrix()
+    y_train = train['type'].as_matrix()
 
-    print(X_train[0].shape)
-    print(X_train.shape)
-    Y_train = np_utils.to_categorical(Y_train)
+    print(x_train[0].shape)
+    print(x_train.shape)
+    y_train = np_utils.to_categorical(y_train)
 
     model = Sequential()
-    model.add(Dense(128, input_dim=len(X_train[0])))
+    model.add(Dense(128, input_dim=len(x_train[0])))
     model.add(Activation('sigmoid'))
     model.add(Dense(5))
     model.add(Activation('softmax'))
@@ -37,7 +37,7 @@ def main():
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
 
-    hist = model.fit(X_train, Y_train, batch_size=220, verbose=1, epochs=20, validation_split=0.1)
+    hist = model.fit(x_train, y_train, batch_size=220, verbose=1, epochs=20, validation_split=0.1)
 
     test = pd.read_csv(test_file)
     col_list = test.columns.tolist()
