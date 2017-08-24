@@ -1,7 +1,7 @@
 from keras.models import Sequential
 from keras.layers.core import Dense, Activation
 from keras.utils import np_utils
-
+import matplotlib.pyplot as plt
 import pandas as pd
 import os
 
@@ -42,10 +42,10 @@ def main():
     test = pd.read_csv(test_file)
     col_list = test.columns.tolist()
     col_list.remove('type')
-    X_test = test[col_list].as_matrix()
-    Y_test = test['type'].as_matrix()
-    Y_test = np_utils.to_categorical(Y_test)
-    score = model.evaluate(X_test, Y_test, verbose=1)
+    x_test = test[col_list].as_matrix()
+    y_test = test['type'].as_matrix()
+    y_test = np_utils.to_categorical(y_test)
+    score = model.evaluate(x_test, y_test, verbose=1)
     print('test accuracy : ', score[1])
 
     # モデルの保存
@@ -53,18 +53,13 @@ def main():
     open(json_file_path, 'w').write(model_json_str)
     model.save(hdf5_file_path)
 
-
-
-
     # ***********************************
     # ネットワークの可視化
     from keras.utils import plot_model
     plot_model(model, to_file='model.png')
 
-
     # ***********************************
     # matplotlibによる学習状況の可視化
-    import matplotlib.pyplot as plt
 
     loss = hist.history['loss']
     val_loss = hist.history['val_loss']
