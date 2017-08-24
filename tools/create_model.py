@@ -13,9 +13,8 @@ json_file_path = script_dir + '/../assets/model/rps_model.json'
 train_file = script_dir + '/csv/train.csv'
 test_file = script_dir + '/csv/test.csv'
 
-def main():
-    weights_filepath = '{}.hdf5'.format(os.path.splitext(hdf5_file_path)[0])
 
+def main():
     train = pd.read_csv(train_file)
 
     col_list = train.columns.tolist()

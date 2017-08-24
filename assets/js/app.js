@@ -4,6 +4,7 @@
 
 // ***** Machine learning *****
 
+var type = ['rk', 'sc', 'sn', 'pp', 'al'];
 const model = new KerasJS.Model({
     filepaths: {
         model: 'assets/model/rps_model.json',
@@ -51,7 +52,6 @@ var test = model.ready().then(
     .use('riggedHand')
     .connect();
 
-var type = ['rk', 'sc', 'sn', 'pp', 'al'];
 Leap.loop(
     {
         frame: function (frame) {
@@ -153,3 +153,24 @@ function calc_distance(v1, v2) {
     var dz = v1[2] - v2[2];
     return Math.sqrt(dx * dx + dy * dy + dz * dz);
 }
+
+function shiftLeft(src, n = 1) {
+    var dst = src.concat();
+    if (n < 0) {
+        for(var i = 0; i < -n; i++) {
+            dst.unshift(dst.pop());
+        }
+    } else {
+        for(var i = 0; i < n; i++) {
+            dst.push(dst.shift());
+        }
+    }
+    return dst;
+}
+
+var inArr = [0, 1, 2, 3, 4];
+console.log(inArr);
+var outArr = shiftLeft(inArr, 1);
+console.log('shift 3: ', outArr);
+outArr = shiftLeft(inArr, -1);
+console.log('shift -1: ', outArr);
