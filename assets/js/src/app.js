@@ -5,7 +5,7 @@
 (function () {
 // ***** Machine learning *****
 
-    let types = ['rk', 'sc', 'sn', 'pp', 'al'];
+    const types = ['rk', 'sc', 'sn', 'pp', 'al'];
     const model = new KerasJS.Model({
         filepaths: {
             model: 'assets/model/rps_model.json',
@@ -15,9 +15,6 @@
         gpu: true
     });
 
-// Alien data
-    let testData = [69.95254, 96.487144, 67.54414, 78.87629, 54.044662, 39.390194, 41.38174, 37.162678, 53.23326, 76.017426, 57.780758,
-        64.09712, 86.60876, 110.918495, 73.8812, 91.8778];
     let testDatas = [
         [84.16389, 22.208298, 95.87912, 38.887985, 85.323845, 37.615242, 41.915462, 38.08003, 65.178444, 28.336594,
             75.83828, 37.989788, 107.72359, 18.471163, 109.08404, 37.9015],
@@ -47,11 +44,11 @@
         }
     );
 
-    var handsType = [0, 0];
+    let handsType = [0, 0];
     // ***** Leap ******
     Leap.loop({
         frame: function (frame) {
-            if (frame.hands.length == 2) {
+            if (frame.hands.length === 2) {
                 checkHand(frame.hands[0], 0);
                 checkHand(frame.hands[1], 1);
                 console.log(handsType);
@@ -63,13 +60,12 @@
             color: new THREE.Color(0xff0000)
         }
     }).use('handEntry', function () {
-    })
-        .on('handLost', function (hand) {
-        });
+    }).on('handLost', function (hand) {
+    });
 
     function checkHand(hand, handIdx) {
         let dists = [];
-        for (var i = 0; i < hand.fingers.length - 1; i++) {
+        for (let i = 0; i < hand.fingers.length - 1; i++) {
             let finger = hand.fingers[i];
             let nextFinger = hand.fingers[i + 1];
             let dmpt = [];
@@ -142,9 +138,9 @@
         console.log('---------');
         // console.log(types[type]);
         // console.log(types);
-        var center = Math.floor(types.length / 2);
+        const center = Math.floor(types.length / 2);
         // console.log(center - type);
-        var l = shiftLeft(types, type - center);
+        const l = shiftLeft(types, type - center);
         // console.log(l);
         // console.log(l.slice(0, center), l.slice(center + 1, l.length));
         return {
@@ -180,6 +176,4 @@
     console.log('shift 3: ', outArr);
     outArr = shiftLeft(inArr, -1);
     console.log('shift -1: ', outArr);
-}).call(this);
-
-
+})();
