@@ -9,7 +9,14 @@ URL
 ```bash
 git clone git@github.com:endoh0509/MachineLearningRPS.git
 cd MachineLearningRPS
-bower install
-gulp
+npm install
+# or yarn
+npm build
 hs -o
 ```
+
+# TODO
+
+- bowerではなくWebpackでまとめる
+- Webpack3
+- https://ics.media/entry/16028
