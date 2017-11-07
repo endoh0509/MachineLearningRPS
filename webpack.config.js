@@ -1,6 +1,5 @@
 module.exports = {
-    // entry: ['babel-polyfill', './assets/js/src/app.js'],  // babel-polyfill はIE11などで必要
-    entry: ['./assets/js/src/app.js'],  // babel-polyfill はIE11などで必要
+    entry: ['./assets/js/src/app.js'],
     output: {
         path: __dirname,
         filename: './assets/js/bundle.js'

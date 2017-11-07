@@ -96,49 +96,48 @@ window.onload = () => {
         },
     })
         .use('handEntry', function () {
-
         })
         .on('handLost', function (hand) {
         });
 };
 
-class Finger {
-    constructor(scene, joints) {
-        this.scene = scene;
-        this.joints = joints;
-        this.object = null;
-    }
-
-    draw() {
-        if (scene.getObjectByName(this.object.name)) {
-            scene.remove(this.object);
-        }
-
-        let material = new THREE.LineBasicMaterial({
-            color: 0x0000ff
-        });
-        let geometry = new THREE.Geometry();
-        this.joints.forEach(function (jointVec) {
-            geometry.vertices.push(new THREE.Vector3(jointVec[0], jointVec[1], jointVec[2]));
-        });
-        scene.add(this.object);
-        renderer.render(scene, camera);
-    }
-}
-
-class Hand {
-    constructor(scene, fingers) {
-        this.scene = scene;
-        this.fingers = fingers;
-        this.object = null;
-    }
-
-    draw() {
-        this.fingers.forEach(function (finger) {
-            finger.draw();
-        });
-    }
-}
+// class Finger {
+//     constructor(scene, joints) {
+//         this.scene = scene;
+//         this.joints = joints;
+//         this.object = null;
+//     }
+//
+//     draw() {
+//         if (scene.getObjectByName(this.object.name)) {
+//             scene.remove(this.object);
+//         }
+//
+//         let material = new THREE.LineBasicMaterial({
+//             color: 0x0000ff
+//         });
+//         let geometry = new THREE.Geometry();
+//         this.joints.forEach(function (jointVec) {
+//             geometry.vertices.push(new THREE.Vector3(jointVec[0], jointVec[1], jointVec[2]));
+//         });
+//         scene.add(this.object);
+//         renderer.render(scene, camera);
+//     }
+// }
+//
+// class Hand {
+//     constructor(scene, fingers) {
+//         this.scene = scene;
+//         this.fingers = fingers;
+//         this.object = null;
+//     }
+//
+//     draw() {
+//         this.fingers.forEach(function (finger) {
+//             finger.draw();
+//         });
+//     }
+// }
 
 const getJointsVectors = (finger) => {
     let jointsVectors = [];

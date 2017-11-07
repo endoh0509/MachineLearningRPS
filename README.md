@@ -1,22 +1,13 @@
 # Machine Learning RPS
 
-## DEMO
-
-URL
+This application judges the game of "rock-paper-scissors" by LeapMotion and Keras.js.
 
 ## Installation & Usage
 
 ```bash
 git clone git@github.com:endoh0509/MachineLearningRPS.git
 cd MachineLearningRPS
-npm install
-# or yarn
-npm build
+npm install # or yarn
+npm run build
 hs -o
 ```
-
-# TODO
-
-- bowerではなくWebpackでまとめる
-- Webpack3
-- https://ics.media/entry/16028

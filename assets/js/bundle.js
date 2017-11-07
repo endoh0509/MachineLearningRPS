@@ -8770,8 +8770,6 @@ module.exports = __webpack_require__(17);
  * Created by katsuya on 2017/08/17.
  */
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _leapjs = __webpack_require__(8);
 
 var _leapjs2 = _interopRequireDefault(_leapjs);
@@ -8785,8 +8783,6 @@ var _three = __webpack_require__(37);
 var _three2 = _interopRequireDefault(_three);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 window.onload = function () {
 
@@ -8874,57 +8870,43 @@ window.onload = function () {
     }).use('handEntry', function () {}).on('handLost', function (hand) {});
 };
 
-var Finger = function () {
-    function Finger(scene, joints) {
-        _classCallCheck(this, Finger);
-
-        this.scene = scene;
-        this.joints = joints;
-        this.object = null;
-    }
-
-    _createClass(Finger, [{
-        key: 'draw',
-        value: function draw() {
-            if (scene.getObjectByName(this.object.name)) {
-                scene.remove(this.object);
-            }
-
-            var material = new _three2.default.LineBasicMaterial({
-                color: 0x0000ff
-            });
-            var geometry = new _three2.default.Geometry();
-            this.joints.forEach(function (jointVec) {
-                geometry.vertices.push(new _three2.default.Vector3(jointVec[0], jointVec[1], jointVec[2]));
-            });
-            scene.add(this.object);
-            renderer.render(scene, camera);
-        }
-    }]);
-
-    return Finger;
-}();
-
-var Hand = function () {
-    function Hand(scene, fingers) {
-        _classCallCheck(this, Hand);
-
-        this.scene = scene;
-        this.fingers = fingers;
-        this.object = null;
-    }
-
-    _createClass(Hand, [{
-        key: 'draw',
-        value: function draw() {
-            this.fingers.forEach(function (finger) {
-                finger.draw();
-            });
-        }
-    }]);
-
-    return Hand;
-}();
+// class Finger {
+//     constructor(scene, joints) {
+//         this.scene = scene;
+//         this.joints = joints;
+//         this.object = null;
+//     }
+//
+//     draw() {
+//         if (scene.getObjectByName(this.object.name)) {
+//             scene.remove(this.object);
+//         }
+//
+//         let material = new THREE.LineBasicMaterial({
+//             color: 0x0000ff
+//         });
+//         let geometry = new THREE.Geometry();
+//         this.joints.forEach(function (jointVec) {
+//             geometry.vertices.push(new THREE.Vector3(jointVec[0], jointVec[1], jointVec[2]));
+//         });
+//         scene.add(this.object);
+//         renderer.render(scene, camera);
+//     }
+// }
+//
+// class Hand {
+//     constructor(scene, fingers) {
+//         this.scene = scene;
+//         this.fingers = fingers;
+//         this.object = null;
+//     }
+//
+//     draw() {
+//         this.fingers.forEach(function (finger) {
+//             finger.draw();
+//         });
+//     }
+// }
 
 var getJointsVectors = function getJointsVectors(finger) {
     var jointsVectors = [];
